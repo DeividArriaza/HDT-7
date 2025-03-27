@@ -1,19 +1,21 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class Producto{
-    private String SKU;
+    private int SKU;
     private String name;
     private String description;
     private Map<String, String> sizesAndAmounts;
 
-    public Producto(String SKU, String name, String description){
+    public Producto(int SKU, String name, String description){
         this.SKU = SKU;
         this.name = name;
         this.description = description;
+        sizesAndAmounts = new HashMap<String, String>();
     }
 
 
-    public String getSKU(){
+    public int getSKU(){
         return SKU;
     }
 
@@ -29,6 +31,9 @@ public class Producto{
         return description;
     }
 
+    public String getSizeAndAmount(String sizeAvailable){
+        return sizesAndAmounts.get(sizeAvailable);
+    }
     public void editSizesAndAmounts(String sizeAvailable, String amount){
         sizesAndAmounts.put(sizeAvailable, amount);
     }
@@ -37,4 +42,7 @@ public class Producto{
         sizesAndAmounts.remove(size);
     }
 
+    public String toString(){
+        return "SKU: "  +  SKU + " | " + "Nombre: " + name +  " | " + "descripción: "  + description +  " | " + "tallas: " + sizesAndAmounts.keySet() + " | " +  "cantidades: " + sizesAndAmounts.values() +"\n"; 
+    }
 }

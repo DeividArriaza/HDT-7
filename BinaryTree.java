@@ -39,8 +39,9 @@ public class BinaryTree<K extends Comparable<K>, V>{
     }
 
     private void traversal(Node<K, V> node){
+        if (node == null) return;  
         traversal(node.left);
-        System.out.println("LLave: " + node.key + "| producto: " + node.value);
+        System.out.println("LLave: " + node.key + " | Producto: " + node.value.toString());
         traversal(node.right);
     }
 }
